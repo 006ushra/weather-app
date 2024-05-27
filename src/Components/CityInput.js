@@ -24,7 +24,7 @@ export default class CityInput extends React.Component {
             <input className="city-input"
                 type="text"
                 placeholder="Enter a city"
-                style={{top: this.state.isCitySet? '-400px': '78px'}}
+                style={{top: this.props.city? '-400px': '78px'}}
                 onKeyDown={onClickHandler}
             />
         )

@@ -6,7 +6,7 @@ import WeatherBox from './Components/WeatherBox';
 
 class App extends React.Component {
   state = {
-    city: 'city name'
+    city: undefined
   }
   setCity = (e) => {
     this.setState({ city: e.target.value });
@@ -15,9 +15,9 @@ class App extends React.Component {
     return (
       <div className='App'>
         <header className='App-header'>
-          <MainWeatherWindow test={this.state.city}>
-            <CityInput setCity={this.setCity.bind(this)} />
-            <ul className='weather-box-list'>
+          <MainWeatherWindow city={this.state.city}>
+            <CityInput city={this.state.city} setCity={this.setCity.bind(this)} />
+            <ul className='weather-box-list' style={{ display: this.state.city ? 'flex' : 'none' }}>
               <li><WeatherBox /></li>
               <li><WeatherBox /></li>
               <li><WeatherBox /></li>
